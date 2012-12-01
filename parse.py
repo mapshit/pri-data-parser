@@ -1,6 +1,6 @@
 def _parse_table(html):
     'Parse a table from an html element'
-    table = html.xpath('//table[@class="Table"]')
+    table = html.xpath('//table[@class="Table"]')[0]
     year = html.xpath('id("ctl00_ContentPlaceHolder1_lbl_gpAwdYr")/text()')[0].split(' ')[-1]
     trs = table.xpath('tr[position()>1]')
     data = []
@@ -31,3 +31,10 @@ def main(fixture_file):
     html = lxml.html.parse(fixture_file)
     data = _parse_table(html)
     return json.dumps(data)
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) == 2:
+        main(sys.argv[1])
+    else:
+        raise TypeError('USAGE: %s [html file]' % sys.argv[0])
