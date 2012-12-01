@@ -20,3 +20,9 @@ Then run something like this.
     . activate
     cd data
     find . -exec msewage.sh {} \;
+
+Or to generate a csv
+
+    . activate
+    cd data
+    find . -exec csv.sh {} \;

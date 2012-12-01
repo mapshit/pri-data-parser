@@ -33,7 +33,7 @@ def _csv(data):
     return out
 
 def _msewage(data):
-    'Convert to this format https://github.com/jcmuller/msewage-importerhttps://github.com/jcmuller/msewage-importer'
+    'Convert to this format https://github.com/jcmuller/msewage-importer'
     msewage = { "sources": [] }
     for row in data:
         msewage['sources'].append({
@@ -43,14 +43,17 @@ def _msewage(data):
         })
     return json.dumps(msewage)
 
-def main(fixture_file):
+def main(fixture_file, format):
     html = lxml.html.parse(fixture_file)
     data = _parse_table(html)
-    return _msewage(data)
+    if format == 'msewage':
+        return _msewage(data)
+    elif format == 'csv':
+        return _csv(data)
 
 if __name__ == '__main__':
     import sys
-    if len(sys.argv) == 2:
-        print(main(sys.argv[1]))
+    if len(sys.argv) == 3:
+        print(main(sys.argv[1], sys.argv[2]))
     else:
         raise TypeError('USAGE: %s [html file]' % sys.argv[0])
