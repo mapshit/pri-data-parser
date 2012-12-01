@@ -24,9 +24,10 @@ def _parse_row(tr):
 def _csv(data):
     out = ''
     for row in data:
-        out += '%(year)s, %(state)s, %(district)s, %(block)s, %(panchayat)s' % data
+        out += '%s(year)s, %(state)s, %(district)s, %(block)s, %(panchayat)s' % row
     return out
 
 def main(fixture_file):
     html = lxml.html.parse(fixture_file)
     data = _parse_table(html)
+    return json.dumps(data)
