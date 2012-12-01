@@ -31,3 +31,5 @@ Or to generate a csv
 This string is useful for geocoding in CartoDB.
 
     {panchayat_name}, {block_name}, {district_name}, {state_name}, India
+
+[Here](http://tlevine.cartodb.com/tables/pri/embed_map?title=true&description=true&search=false&shareable=false&sql=&zoom=3&center_lat=25.958044673317843&center_lon=75.76171875)'s the map.
