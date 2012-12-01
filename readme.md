@@ -18,7 +18,6 @@ msewage format. Install the
 Then run something like this.
 
     tmp=$(mktemp)
-    for file in *.html; do
       ./parse.py $file > $tmp
       msewage-importer -Topen_defecation_site $tmp
-    done
+    find fixtures/ -exec ls {} \;
