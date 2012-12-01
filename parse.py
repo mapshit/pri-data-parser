@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+import json
+import lxml.html
+
 def _parse_table(html):
     'Parse a table from an html element'
     table = html.xpath('//table[@class="Table"]')[0]
@@ -7,6 +11,7 @@ def _parse_table(html):
     for tr in trs:
         row = _parse_row(tr)
         row['year'] = year
+        data.append(row)
     return data
 
 def _parse_row(tr):
@@ -22,9 +27,9 @@ def _parse_row(tr):
     }
 
 def _csv(data):
-    out = ''
+    out = 'Year,State Name,District Name,Block Name,Panchayat Name\r'
     for row in data:
-        out += '%s(year)s, %(state)s, %(district)s, %(block)s, %(panchayat)s' % row
+        out += '%(year)s,%(state)s,%(district)s,%(block)s,%(panchayat)s\r' % row
     return out
 
 def main(fixture_file):
@@ -35,6 +40,6 @@ def main(fixture_file):
 if __name__ == '__main__':
     import sys
     if len(sys.argv) == 2:
-        main(sys.argv[1])
+        print(main(sys.argv[1]))
     else:
         raise TypeError('USAGE: %s [html file]' % sys.argv[0])
