@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-parse.py "$1" csv > "$1".csv | sed -e 's/\r/\r\n/' -e 1d
+parse.py "$1" csv | tr '\r' '\n' | sed -e 1d -e '$d'

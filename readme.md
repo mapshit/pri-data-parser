@@ -25,4 +25,5 @@ Or to generate a csv
 
     . activate
     cd data
-    find . -exec csv.sh {} \;
+    echo Year,State Name,District Name,Block Name,Panchayat Name > ../pri.csv
+    find . -name *.html -exec csv.sh {} \; >> ../pri.csv
