@@ -12,3 +12,6 @@ We want these columns in the final dataset
 Start selenium like so
 
     java -jar selenium-server-standalone-2.26.0.jar -port 4443
+
+But actually, we're going to download the pages manually and then write the
+parser.

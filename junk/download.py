@@ -12,5 +12,7 @@ def _driver_setup():
 
 d = _driver_setup()
 d.get('http://nirmalgrampuraskar.nic.in/Report/RptGPAwardedSummaryTill2010.aspx')
-state_names_messy = d.find_elements_by_xpath('//table[@class="Table"]/descendant::tr/td[position()=2]/text()')[2:-2]
-state_names = [name.strip() for name in state_names_messy]
+all_links = d.find_elements_by_xpath('//table[@class="Table"]/descendant::a')
+for link in all_links:
+    if link attribute contains 'g20', download it
+    or just download everything. yeah.
