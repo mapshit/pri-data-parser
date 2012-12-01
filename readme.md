@@ -17,5 +17,6 @@ msewage format. Install the
 
 Then run something like this.
 
+    . activate
     cd data
-    find . -exec ../msewage.sh {} \;
+    find . -exec msewage.sh {} \;
