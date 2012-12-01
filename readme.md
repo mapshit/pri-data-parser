@@ -27,3 +27,7 @@ Or to generate a csv
     cd data
     echo Year,State Name,District Name,Block Name,Panchayat Name > ../pri.csv
     find . -name *.html -exec csv.sh {} \; >> ../pri.csv
+
+This string is useful for geocoding in CartoDB.
+
+    {panchayat_name}, {block_name}, {district_name}, {state_name}, India
