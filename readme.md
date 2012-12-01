@@ -9,9 +9,16 @@ We want these columns in the final dataset
 * Block Name
 * Panchayat Name 
 
-Start selenium like so
+We downloaded the pages manually, and we have a thingy to convert them to the
+msewage format. Install the
+[msewage importer](https://github.com/jcmuller/msewage-importer).
 
-    java -jar selenium-server-standalone-2.26.0.jar -port 4443
+    gem install msewage-importer
 
-But actually, we're going to download the pages manually and then write the
-parser.
+Then run something like this.
+
+    tmp=$(mktemp)
+    for file in *.html; do
+      ./parse.py $file > $tmp
+      msewage-importer -Topen_defecation_site $tmp
+    done
