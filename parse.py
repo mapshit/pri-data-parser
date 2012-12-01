@@ -32,10 +32,21 @@ def _csv(data):
         out += '%(year)s,%(state)s,%(district)s,%(block)s,%(panchayat)s\r' % row
     return out
 
+def _msewage(data):
+    'Convert to this format https://github.com/jcmuller/msewage-importerhttps://github.com/jcmuller/msewage-importer'
+    msewage = { "sources": [] }
+    for row in data:
+        msewage['sources'].append({
+            "name": row['panchayat'],
+            "location": '%(panchayat)s, %(block)s, %(district)s, %(state)s, India' % row,
+            "description": 'Updated in %s' % row['year']
+        })
+    return json.dumps(msewage)
+
 def main(fixture_file):
     html = lxml.html.parse(fixture_file)
     data = _parse_table(html)
-    return json.dumps(data)
+    return _msewage(data)
 
 if __name__ == '__main__':
     import sys
