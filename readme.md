@@ -17,7 +17,4 @@ msewage format. Install the
 
 Then run something like this.
 
-    tmp=$(mktemp)
-      ./parse.py $file > $tmp
-      msewage-importer -Topen_defecation_site $tmp
-    find fixtures/ -exec ls {} \;
+    find data -exec ./msewage.sh {} \;
