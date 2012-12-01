@@ -8,3 +8,7 @@ We want these columns in the final dataset
 * District Name
 * Block Name
 * Panchayat Name 
+
+Start selenium like so
+
+    java -jar selenium-server-standalone-2.26.0.jar -port 4443
