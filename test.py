@@ -12,5 +12,11 @@ def _(fixture_name):
     expected_list = filter(None, expected.split('\r'))
     n.assert_list_equal(observed_list, expected_list)
 
-def test_1():
+def test_west_bengal():
     _('WestBengal_2005.aspx')
+
+def test_karnatka():
+    _('Karnataka_2007.aspx')
+
+def test_punjab():
+    _('Punjab_2010.aspx')
