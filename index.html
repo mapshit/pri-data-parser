@@ -40,15 +40,23 @@ html, body, #map {
   border-top-left-radius: 1em;
 }
 
-p {
+h1, p {
     margin: 0.5em 0.5em 0em 0.5em;
     padding: 0px;
     font-weight: normal;
-    font-size: 13px;
-    color: rgb(153, 153, 153);
+    color: #CCC;
     font-family: 'Helvetica Neue',Helvetica,sans-serif; 
     float: left;
 }
+p {
+  font-size: 13px;
+}
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-left: 0.25em;
+}
+
 a, a:hover, a:active, a:visited {
     font-weight: inherit;
     color: rgb(57, 125, 186);
@@ -63,6 +71,13 @@ a, a:hover, a:active, a:visited {
       <img id="logo" alt="MapSH logo" src="mapsh-logo.png">
     </div>
     <div id="notes">
+      <header>
+        <h1>MapSH: Open opening defecation data</h1>
+      </header>
+      <p>
+        These are open defecation sites from the Indian
+        <a href="http://nirmalgrampuraskar.nic.in/Report/RptGPAwardedSummaryTill2010.aspx">Ministry of Drinking Water &amp; Sanitation</a>.
+      </p>
       <p>
         Sarah Fathallah,
         Thomas Levine,
@@ -72,10 +87,6 @@ a, a:hover, a:active, a:visited {
         <a href="http://toilethackers.org/">Toilet Hackers</a> 
         Sanitation Hackathon
         on December 1, 2012.
-      </p>
-      <p>
-        The data come from the Indian
-        <a href="http://nirmalgrampuraskar.nic.in/Report/RptGPAwardedSummaryTill2010.aspx">Ministry of Drinking Water &amp; Sanitation</a>.
       </p>
       <p>
         Contact us at some email address.
